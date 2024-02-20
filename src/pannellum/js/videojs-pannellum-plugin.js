@@ -49,6 +49,10 @@ import videojs from 'video.js'
             if (player.paused())
                 player.pnlmViewer.setUpdate(false);
         });
+        player.on('timeupdate', function() {
+            // 現在の再生時間を取得してログに出力
+            console.log('Current time: ' + player.currentTime());
+        });
     });
     
     })(document, videojs, pannellum);

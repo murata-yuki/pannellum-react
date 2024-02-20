@@ -15,7 +15,8 @@ class PannellumVideo extends Component {
   constructor(props){
     super(props);
     this.state = {
-      id: Math.random().toString(36).substr(2, 9)
+      id: Math.random().toString(36).substr(2, 9),
+      currentTime: 0 // 現在の再生時間を保持するための状態
     };
   }
 
@@ -159,15 +160,15 @@ class PannellumVideo extends Component {
   }
 
   componentDidMount = () => {
-    this.renderVideo("mount");    
+    this.renderVideo("mount");
+    this.video = videojs(this.videoNode);
+    this.video.on('timeupdate', this.handleTimeUpdate);
   }
 
   componentDidUpdate (prevProps){
     // videojs(this.videoNode).dispose();
     // this.videoNode.setAttribute("src", this.props.video );
     this.renderVideo("update");
-
-
   }
 
   handleClickHotspot = (e , args) => {
@@ -191,11 +192,17 @@ class PannellumVideo extends Component {
   }
 
   componentWillUnmount() {
+    this.video.off('timeupdate', this.handleTimeUpdate);
     videojs(this.videoNode).dispose();
   }
   
   getViewer = () => {
     return this.video.pnlmViewer;
+  }
+
+  handleTimeUpdate = () => {
+    // 現在の再生時間を取得して、状態を更新
+    this.setState({ currentTime: this.video.currentTime() });
   }
 
   render() {
