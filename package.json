@@ -1,6 +1,6 @@
 {
   "name": "pannellum-react",
-  "version": "1.3.6",
+  "version": "1.2.4",
   "description": "Pannellum React Component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -37,10 +37,10 @@
     "react": "18.1.0 ",
     "react-dom": "18.1.0 "
   },
-  "author": "farminf<farmin.f@gmail.com>",
-  "homepage": "https://github.com/farminf/pannellum-react",
+  "author": "",
+  "homepage": "https://github.com/murata-yuki/pannellum-react",
   "license": "MIT",
-  "repository": "https://github.com/farminf/pannellum-react",
+  "repository": "https://github.com/murata-yuki/pannellum-react",
   "keywords": [
     "react-component",
     "Pannellum",
