@@ -49,9 +49,9 @@ import videojs from 'video.js'
             if (player.paused())
                 player.pnlmViewer.setUpdate(false);
         });
-        // player.on('timeupdate', function() {
-        //     console.log('Current time: ' + player.currentTime());
-        // });
+        player.on('timeupdate', function() {
+            console.log('Current time: ' + player.currentTime());
+        });
     });
     
     })(document, videojs, pannellum);
